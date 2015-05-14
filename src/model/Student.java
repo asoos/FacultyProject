@@ -88,6 +88,12 @@ public class Student extends User{
 				+ _grades + "]";
 	}
 
+	public String getPassword() {
+		// TODO Auto-generated method stub
+		return super.get_password();
+		
+	}
+
 
 	
 }
