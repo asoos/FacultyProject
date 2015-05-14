@@ -121,7 +121,7 @@ public class LoginView extends JPanel{
 	private void startWindow(int userId, int type) {
 		frame.dispose();
 		if (type == 0)
-			new StudentView(userId);
+			new StudentInterface(userId);
 		else
 			new TeacherView(userId);
 	}

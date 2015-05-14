@@ -1,27 +1,41 @@
 package controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import model.*;
 public class ROController implements IROController {
 
+	StudentRepository st; 
+	TeacherRepository tr;
 	
 	public ROController() {
 		// TODO Auto-generated constructor stub
-		
-	}
-	@Override
-	public List<Lecture> getStudentLecturesById(int id) {
-		// TODO Auto-generated method stub
-		
-		
-		return null;
+		this.st = new StudentRepository();
+		this.tr = new TeacherRepository();
 	}
 
 	@Override
-	public  List <Lecture> getTeacherLecturesById(int id) {
+	public ArrayList<Object> getStudentLecturesById(int id) {
 		// TODO Auto-generated method stub
-		return null;
+		
+		Student current = st.getStudentById(UserSingleton.id);
+		ArrayList<Object> res = new ArrayList<Object>();
+		for (Lecture l : current.get_lectures()){
+			res.add(l);
+		}
+		return res;
+	}
+
+	@Override
+	public  ArrayList <Object> getTeacherLecturesById(int id) {
+		// TODO Auto-generated method stub
+		Teacher current = tr.getTeacherById(UserSingleton.id);
+		ArrayList<Object> res = new ArrayList<Object>();
+		for (Lecture l : current.get_lectures()){
+			res.add(l);
+		}
+		return res;
 	}
 
 	@Override
@@ -49,7 +63,7 @@ public class ROController implements IROController {
 	}
 
 	@Override
-	public String getFacultiesById(int id) {
+	public ArrayList <Object> getFacultiesById(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

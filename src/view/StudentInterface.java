@@ -1,16 +1,15 @@
 package view;
 
 import java.awt.BorderLayout;
-import java.awt.GridLayout;
-
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-
+import javax.swing.SwingUtilities;
 import controller.IROController;
 import controller.ROController;
 
 
-public class TeacherView extends JPanel{
+public class StudentInterface extends JPanel{
 	private static final long serialVersionUID = 1L;
 	
 	private int userId;
@@ -18,9 +17,10 @@ public class TeacherView extends JPanel{
 	private JFrame frame;
 	// panels
 	private JPanel mainPanel;
+	String[] Faculties = {"FSEGA", "UBB", "POLI"};
 	
-	public TeacherView(int userId) {
-		frame = new JFrame("Teacher");
+	public StudentInterface(int userId) {
+		frame = new JFrame("Student");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		this.roController = new ROController();
@@ -29,25 +29,25 @@ public class TeacherView extends JPanel{
 		JPanel userDataPanel = ViewUtil.getUserPart(roController, this.userId);
 		mainPanel.add(userDataPanel, BorderLayout.NORTH);
 		
+	    JComboBox<String> FacultiesList = new JComboBox<String>(Faculties);
 		frame.add(mainPanel);
-		frame.add(getCentralPanel(), BorderLayout.CENTER);
-		
+		mainPanel.add(FacultiesList);
 		addListeners();
 
 		frame.pack();
 		frame.setVisible(true);
 	}
 
-	private JPanel getCentralPanel() {
-		JPanel centralP = new JPanel(new GridLayout(1,1));
-		
-//		List<Object> faculties = roController.getFacultiesById(userId);
-		
-		
-		return centralP;
-	}
-	
 	private void addListeners() {
 	}
+	public static void main(String[] args) {
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+            	StudentInterface app = new StudentInterface(34);
+                app.setVisible(true);
+            }
+        });
 }
 
+}
