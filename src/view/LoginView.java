@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -38,14 +39,14 @@ public class LoginView extends JPanel{
 	public LoginView() {
 		this.controller = new LoginController();
 		frame = new JFrame("Login");
-		frame.setSize(300, 150);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		mainPanel = new JPanel();
-		frame.add(mainPanel);
+		mainPanel = new JPanel(new GridLayout(10,2));
 		placeComponents();
 		addListeners();
+		frame.add(mainPanel);
 
+		frame.pack();
 		frame.setVisible(true);
 	}
 
@@ -57,7 +58,10 @@ public class LoginView extends JPanel{
 				int type = getType();
 				if (cred != null) {
 					int res = controller.login(cred[0], cred[1], type);
-					startWindow(res, type);
+					if (res >= 0) {
+						startWindow(res, type);
+					} else
+						JOptionPane.showConfirmDialog(frame, "login failed");
 				}
 			}
 		});
@@ -78,8 +82,6 @@ public class LoginView extends JPanel{
 	
 	private void placeComponents() {
 
-		mainPanel.setLayout(null);
-
 		// Create the radio buttons.
 	    rbTeacher = new JRadioButton("Teacher");
 	    rbTeacher.setMnemonic(KeyEvent.VK_T);
@@ -93,28 +95,33 @@ public class LoginView extends JPanel{
 	    group.add(rbTeacher);
 	    group.add(rbStudent);
 	    
+//	    rbTeacher.setBounds(10, 10, 120, 25);
+	    mainPanel.add(rbTeacher);
+//	    rbStudent.setBounds(10, 10, 120, 25);
+	    mainPanel.add(rbStudent);
+	    
 		JLabel userLabel = new JLabel("User");
-		userLabel.setBounds(10, 10, 120, 25);
+//		userLabel.setBounds(10, 10, 120, 25);
 		mainPanel.add(userLabel);
 
 		txtUser = new JTextField(20);
-		txtUser.setBounds(100, 10, 160, 25);
+//		txtUser.setBounds(100, 10, 160, 25);
 		mainPanel.add(txtUser);
 
 		JLabel passwordLabel = new JLabel("Password");
-		passwordLabel.setBounds(10, 40, 80, 25);
+//		passwordLabel.setBounds(10, 40, 80, 25);
 		mainPanel.add(passwordLabel);
 
 		txtPassword = new JPasswordField(20);
-		txtPassword.setBounds(100, 40, 160, 25);
+//		txtPassword.setBounds(100, 40, 160, 25);
 		mainPanel.add(txtPassword);
 
 		btnLogin = new JButton("login");
-		btnLogin.setBounds(10, 80, 120, 25);
+//		btnLogin.setBounds(10, 80, 120, 25);
 		mainPanel.add(btnLogin);
 		
 		btnRegister = new JButton("Register");
-		btnRegister.setBounds(180, 80, 120, 25);
+//		btnRegister.setBounds(180, 80, 120, 25);
 		mainPanel.add(btnRegister);
 	}
 
