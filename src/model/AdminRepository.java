@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-public class AdminRepository extends Populate implements IAdminRepo {
+public class AdminRepository extends PopulateRepository implements AdminRepoInterface {
 
 	
 	public AdminRepository(){
@@ -13,8 +13,9 @@ public class AdminRepository extends Populate implements IAdminRepo {
 		populateFaculties();
 		populateTeachers();
 		populateStudents();
-		populateFaculties();
-		populateLectures();
+
+		populateAdmins();	
+
 	}
 	
 	
@@ -39,14 +40,28 @@ public class AdminRepository extends Populate implements IAdminRepo {
 		// TODO Auto-generated method stub
 		Map<String,Integer> grades = new HashMap<String,Integer>();
 		grades.put("mate", 10);
-		Student st1 = new Student(1,"st1","123","Student","1235","Marinel,nr.3",faculties,lectures,grades);
+		Student st1 = new Student(1,"st1","123","Student1","1235","Marinel,nr.3",faculties,lectures,grades);
+		grades.remove("mate");
+		grades.put("info", 10);
+		Student st2 = new Student(2,"st2","123","Student2","1235","Marinel,nr.3",faculties,lectures,grades);
+		grades.remove("info");
+		grades.put("oop", 7);
+		Student st3 = new Student(3,"st3","123","Student3","1235","Marinel,nr.3",faculties,lectures,grades);
+		grades.remove("oop");
+		grades.put("info", 10);
+		Student st4 = new Student(4,"st4","123","Student4","1235","Marinel,nr.3",faculties,lectures,grades);
+
+		students.add(st1);students.add(st2);students.add(st3);students.add(st4);
 		
 	}
 	public void populateTeachers() {
 		// TODO Auto-generated method stub
-		Teacher teach = new Teacher(2,"teach1","123","Student","1235","Marinel,nr.3",faculties,lectures);
-		addAdmin();	
-
+		Teacher teach1 = new Teacher(1,"teach1","123","Teacher1","1235","Marinel,nr.3",faculties,lectures);
+		Teacher teach2 = new Teacher(2,"teach2","123","Teacher2","1235","Marinel,nr.3",faculties,lectures);
+		Teacher teach3 = new Teacher(3,"teach3","123","Teacher3","1235","Marinel,nr.3",faculties,lectures);
+		Teacher teach4 = new Teacher(4,"teach4","123","Teacher4","1235","Marinel,nr.3",faculties,lectures);
+		
+		teachers.add(teach1);teachers.add(teach2);teachers.add(teach3);teachers.add(teach4);
 	}
 
 	/**	
@@ -58,7 +73,7 @@ public class AdminRepository extends Populate implements IAdminRepo {
 	 * 		   false otherwise
 	 */
 	public boolean login(String userName,String password){
-		for(User user:admins){
+		for(Admin user:admins){
 			if(user.get_userName().equals(userName) && user.get_password().equals(password))
 				return true;
 		}
@@ -196,5 +211,11 @@ public class AdminRepository extends Populate implements IAdminRepo {
 				return faculty;
 		}
 		return null;
+	}
+
+	@Override
+	public ArrayList<Admin> getAllAdmins() {
+		// TODO Auto-generated method stub
+		return admins;
 	}
 }

@@ -6,9 +6,9 @@ import model.*;
 
 public class LoginController implements ILoginController{
 
-	private IAdminRepo adminRepo;
-	private ITeacherRepo teacherRepo;
-	private IStudentRepo studentRepo;
+	private AdminRepoInterface adminRepo;
+	private TeacherRepoInterface teacherRepo;
+	private StudentRepoInterface studentRepo;
 	
 	public LoginController(){
 		adminRepo = new AdminRepository();
