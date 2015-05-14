@@ -72,8 +72,9 @@ public class LoginController implements ILoginController{
 		System.out.println(username + password);
 		ArrayList<Student> students = studentRepo.getAllStudents();
 		for (Student currentStudent : students) {
-			if (currentStudent.getPassword() == password && currentStudent.get_userName() == username){
-				System.out.println(currentStudent);
+			System.out.println(currentStudent);
+			if (currentStudent.getPassword().equals(password)  
+					&& currentStudent.get_userName().equals(username)){
 				return currentStudent.get_userId();
 			}
 		}

@@ -85,7 +85,8 @@ public class Student extends User{
 		return "Student [_userId=" + _userId + ", _name=" + _name + ", _cnp="
 				+ _cnp + ", _address=" + _address + ", _faculties="
 				+ _faculties + ", _lectures=" + _lectures + ", _grades="
-				+ _grades + "]";
+				+ _grades + ", get_id()=" + get_id() + ", get_userName()="
+				+ get_userName() + ", get_password()=" + get_password() + "]";
 	}
 
 	public String getPassword() {

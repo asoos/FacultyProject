@@ -1,8 +1,6 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 
 public class AdminRepository extends PopulateRepository implements AdminRepoInterface {
@@ -36,24 +34,24 @@ public class AdminRepository extends PopulateRepository implements AdminRepoInte
 		Faculty fac2 = new Faculty(1,"UTC","Campului,nr.2",lectures);
 		faculties.add(fac);faculties.add(fac2);
 	}
-	public void populateStudents() {
-		// TODO Auto-generated method stub
-		Map<String,Integer> grades = new HashMap<String,Integer>();
-		grades.put("mate", 10);
-		Student st1 = new Student(1,"st1","123","Student1","1235","Marinel,nr.3",faculties,lectures,grades);
-		grades.remove("mate");
-		grades.put("info", 10);
-		Student st2 = new Student(2,"st2","123","Student2","1235","Marinel,nr.3",faculties,lectures,grades);
-		grades.remove("info");
-		grades.put("oop", 7);
-		Student st3 = new Student(3,"st3","123","Student3","1235","Marinel,nr.3",faculties,lectures,grades);
-		grades.remove("oop");
-		grades.put("info", 10);
-		Student st4 = new Student(4,"st4","123","Student4","1235","Marinel,nr.3",faculties,lectures,grades);
-
-		students.add(st1);students.add(st2);students.add(st3);students.add(st4);
-		
-	}
+//	public void populateStudents() {
+//		// TODO Auto-generated method stub
+//		Map<String,Integer> grades = new HashMap<String,Integer>();
+//		grades.put("mate", 10);
+//		Student st1 = new Student(1,"st1","123","Student1","1235","Marinel,nr.3",faculties,lectures,grades);
+//		grades.remove("mate");
+//		grades.put("info", 10);
+//		Student st2 = new Student(2,"st2","123","Student2","1235","Marinel,nr.3",faculties,lectures,grades);
+//		grades.remove("info");
+//		grades.put("oop", 7);
+//		Student st3 = new Student(3,"st3","123","Student3","1235","Marinel,nr.3",faculties,lectures,grades);
+//		grades.remove("oop");
+//		grades.put("info", 10);
+//		Student st4 = new Student(4,"st4","123","Student4","1235","Marinel,nr.3",faculties,lectures,grades);
+//
+//		students.add(st1);students.add(st2);students.add(st3);students.add(st4);
+//		
+//	}
 	public void populateTeachers() {
 		// TODO Auto-generated method stub
 		Teacher teach1 = new Teacher(1,"teach1","123","Teacher1","1235","Marinel,nr.3",faculties,lectures);

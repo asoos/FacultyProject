@@ -1,14 +1,17 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class StudentRepository extends PopulateRepository implements StudentRepoInterface {
+	public ArrayList<Student> students = new ArrayList<Student>();
 	
 	public StudentRepository(){
 		populateLectures();
 		populateFaculties();
 		populateTeachers();
-		populateStudents();
+//		students = populateStudents();
 		populateAdmins();	
 	}
 	/**	
@@ -35,6 +38,15 @@ public class StudentRepository extends PopulateRepository implements StudentRepo
 	}
 	
 	public ArrayList<Student> getAllStudents(){
+		Map<String,Integer> grades = new HashMap<String,Integer>();
+		grades.put("mate", 10);
+		Student st1 = new Student(1,"mate","123","Student1","1235","Marinel,nr.3",faculties,lectures,grades);
+		grades.put("English", 9);
+		Student st2 = new Student(2,"st2","123","Student2","1235","Marinel,nr.3",faculties,lectures,grades);
+		grades.put("oop", 10);
+		Student st3 = new Student(3,"st3","123","Student3","1235","Marinel,nr.3",faculties,lectures,grades);
+		students.add(st1);students.add(st2);students.add(st3);
+		students.toString();
 		return students;
 	}
 	
