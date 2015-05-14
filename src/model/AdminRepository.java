@@ -16,6 +16,8 @@ public class AdminRepository implements IAdminRepo {
 		populateFaculties();
 		populateLectures();
 	}
+	
+	
 	private void populateLectures() {
 		// TODO Auto-generated method stub
 		Lecture lect1 = new Lecture(1,"mate",8);

@@ -6,7 +6,6 @@ import model.*;
 public class ROController implements IROController {
 
 	
-	
 	public ROController() {
 		// TODO Auto-generated constructor stub
 		
