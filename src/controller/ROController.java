@@ -1,7 +1,6 @@
 package controller;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import model.*;
 public class ROController implements IROController {
@@ -34,32 +33,48 @@ public class ROController implements IROController {
 
 	@Override
 	public String getNameById(int id) {
-		// TODO Auto-generated method stub
+		
+		if (UserSingleton.type == 0){
+			return st.getStudentById(UserSingleton.id).get_name();
+		}
 		return null;
 	}
 
 	@Override
 	public String getSurnameById(int id) {
 		// TODO Auto-generated method stub
+		if (UserSingleton.type == 0){
+			return "Default Student Surname";
+		}
 		return null;
 	}
 
 	@Override
 	public String getGenderById(int id) {
 		// TODO Auto-generated method stub
+		if (UserSingleton.type == 0){
+			return "Default Student Gender";
+		}
 		return null;
 	}
 
 	@Override
 	public String getFathersNameById(int id) {
 		// TODO Auto-generated method stub
+		if (UserSingleton.type == 0){
+			return "Default Student father's name";
+		}
 		return null;
 	}
 
 	@Override
-	public ArrayList <Object> getFacultiesById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public ArrayList <Object> getStudentFacultiesById(int id) {
+		Student current = st.getStudentById(UserSingleton.id);
+		ArrayList<Object> res = new ArrayList<Object>();
+		for (Faculty f : current.get_faculties()){
+			res.add(f);
+		}
+		return res;
 	}
 	
 

@@ -10,5 +10,5 @@ public interface IROController {
 	public String getSurnameById(int id);
 	public String getGenderById(int id);
 	public String getFathersNameById(int id);
-	public ArrayList<Object> getFacultiesById(int id);
+	public ArrayList<Object> getStudentFacultiesById(int id);
 }
