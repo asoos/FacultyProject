@@ -1,22 +1,26 @@
 package controller;
 
+import java.util.List;
+
 import model.*;
 public class ROController implements IROController {
 
+	
 	
 	public ROController() {
 		// TODO Auto-generated constructor stub
 		
 	}
 	@Override
-	public String getStudentCoursesById(int id) {
-		return null;
+	public List<Lecture> getStudentLecturesById(int id) {
 		// TODO Auto-generated method stub
-	
+		
+		
+		return null;
 	}
 
 	@Override
-	public String getTeacherCoursesById(int id) {
+	public  List <Lecture> getTeacherLecturesById(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
