@@ -6,12 +6,8 @@ public interface IAdminRepo {
 	 * login function logs a user in the application
 	 * parameters: userName- the user name given by the admin
 	 * 			   password - a string used as a verification mechanism
-	 * 			   position - an integer which indicates what kind of user tries to log in
-	 * 						1 - is for an admin
-	 * 						2 - is for a teacher
-	 * 						3 - is for a student
 	 */
-	public void login(String userName,String password,int position);
+	public boolean login(String userName,String password);
 	
 	public void addStudent(Student student);
 	public void removeStudent(int studentId);
