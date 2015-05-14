@@ -51,7 +51,7 @@ public class TeacherView extends JPanel{
 	private JPanel getCentralPanel() {
 		JPanel centralP = new JPanel(new GridLayout(1,1));
 		
-		List<Object> faculties = roController.getFacultiesById(userId);
+		List<Object> faculties = roController.getStudentFacultiesById(userId);
 		JComboBox<Object> cbFaculties = null;
 		if (faculties != null)
 			cbFaculties = new JComboBox<Object>(faculties.toArray());

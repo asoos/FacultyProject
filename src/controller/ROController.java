@@ -82,6 +82,14 @@ public class ROController implements IROController {
 		}
 		return res;
 	}
+	public ArrayList <Object> getTeacherFacultiesById(int id) {
+		Teacher current = tr.getTeacherById(UserSingleton.id);
+		ArrayList<Object> res = new ArrayList<Object>();
+		for (Faculty f : current.get_faculties()){
+			res.add(f);
+		}
+		return res;
+	}
 	
 
 }
