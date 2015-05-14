@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.BorderLayout;
+import java.awt.GridLayout;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -29,6 +30,7 @@ public class TeacherView extends JPanel{
 		mainPanel.add(userDataPanel, BorderLayout.NORTH);
 		
 		frame.add(mainPanel);
+		frame.add(getCentralPanel(), BorderLayout.CENTER);
 		
 		addListeners();
 
@@ -36,6 +38,15 @@ public class TeacherView extends JPanel{
 		frame.setVisible(true);
 	}
 
+	private JPanel getCentralPanel() {
+		JPanel centralP = new JPanel(new GridLayout(1,1));
+		
+//		List<Object> faculties = roController.getFacultiesById(userId);
+		
+		
+		return centralP;
+	}
+	
 	private void addListeners() {
 	}
 }
