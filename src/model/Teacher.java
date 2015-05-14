@@ -1,10 +1,14 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 public class Teacher extends User{
 	private int _userId;
-	private String _name;
+	private String _firstName;
+	private String _surName;
+	private String _fatherName;
+	private String _gender;
 	private String _cnp;
 	private String _address;
 	private ArrayList<Faculty> _faculties;
@@ -14,13 +18,52 @@ public class Teacher extends User{
 					String name,String cnp,String address,ArrayList<Faculty> faculties,ArrayList<Lecture>lectures){
 		super(id,userName,password);
 		this._userId = id;
-		this._name = name;
+		this._firstName = name;
 		this._cnp = cnp;
 		this._address = address;
 		this._faculties = faculties;
 		this._lectures = lectures;
 	}
+	public Teacher(int id,String userName,String password,
+			String firstName,String surName,String fatherName,String gender,String cnp,String address,ArrayList<Faculty> faculties,ArrayList<Lecture>lectures,Map<String,Integer> grades){
+		super(id,userName,password);
+		this._userId = id;
+		this._firstName = firstName;
+		this._surName = surName;
+		this._fatherName = fatherName;
+		this._gender = gender;
+		this._cnp = cnp;
+		this._address = address;
+		this._faculties = faculties;
+		this._lectures = lectures;
+}
 
+	@Override
+	public String toString() {
+		return "Teacher [_userId=" + _userId + ", _firstName=" + _firstName
+				+ ", _surName=" + _surName + ", _fatherName=" + _fatherName
+				+ ", _gender=" + _gender + ", _cnp=" + _cnp + ", _address="
+				+ _address + ", _faculties=" + _faculties + ", _lectures="
+				+ _lectures + "]";
+	}
+	public String get_firstName() {
+		return _firstName;
+	}
+	public void set_firstName(String _firstName) {
+		this._firstName = _firstName;
+	}
+	public String get_surName() {
+		return _surName;
+	}
+	public void set_surName(String _surName) {
+		this._surName = _surName;
+	}
+	public String get_gender() {
+		return _gender;
+	}
+	public void set_gender(String _gender) {
+		this._gender = _gender;
+	}
 	public int get_userId() {
 		return _userId;
 	}
@@ -30,11 +73,11 @@ public class Teacher extends User{
 	}
 
 	public String get_name() {
-		return _name;
+		return _firstName;
 	}
 
 	public void set_name(String _name) {
-		this._name = _name;
+		this._firstName = _name;
 	}
 
 	public String get_cnp() {
@@ -69,11 +112,6 @@ public class Teacher extends User{
 		this._lectures = _lectures;
 	}
 
-	@Override
-	public String toString() {
-		return "Teacher [_userId=" + _userId + ", _name=" + _name + ", _cnp="
-				+ _cnp + ", _address=" + _address + ", _faculties="
-				+ _faculties + ", _lectures=" + _lectures + "]";
-	}
+
 	
 }
