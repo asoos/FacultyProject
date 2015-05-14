@@ -1,5 +1,6 @@
 package controller;
 
-public class IROController {
 
+public interface IROController {
+	
 }

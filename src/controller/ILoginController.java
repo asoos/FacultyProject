@@ -1,5 +1,7 @@
 package controller;
 
 public interface ILoginController {
-	int validateUserCredentials(String username, String password);
+	int	login(String username, String password);
+
+
 }
