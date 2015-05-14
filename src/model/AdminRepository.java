@@ -3,7 +3,7 @@ package model;
 import java.util.ArrayList;
 
 
-public class AdminRepository extends Populate implements IAdminRepo {
+public class AdminRepository extends PopulateRepository implements AdminRepoInterface {
 
 	
 	public AdminRepository(){
@@ -11,7 +11,7 @@ public class AdminRepository extends Populate implements IAdminRepo {
 		populateFaculties();
 		populateTeachers();
 		populateStudents();
-		addAdmin();	
+		populateAdmins();	
 	}
 
 	/**	
@@ -161,5 +161,11 @@ public class AdminRepository extends Populate implements IAdminRepo {
 				return faculty;
 		}
 		return null;
+	}
+
+	@Override
+	public ArrayList<Admin> getAllAdmins() {
+		// TODO Auto-generated method stub
+		return admins;
 	}
 }
