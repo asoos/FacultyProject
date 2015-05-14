@@ -1,9 +1,18 @@
 package controller;
 
+import model.*;
+
 public class LoginController implements ILoginController{
 
+	private IAdminRepo adminRepo;
+	private ITeacherRepo teacherRepo;
+	private IStudentRepo studentRepo;
 	
-	
+	public LoginController(){
+		adminRepo = new AdminRepository();
+		teacherRepo = new TeacherRepository();
+		studentRepo = new StudentRepository();
+	}
 	@Override
 	public int login(String username, String password, int type) {
 		// TODO Auto-generated method stub
