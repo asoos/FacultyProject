@@ -5,9 +5,15 @@ import java.util.ArrayList;
 import model.*;
 public class ROController implements IROController {
 
+	StudentRepository st; 
+	TeacherRepository tr;
 	
-	StudentRepository st = new StudentRepository();
-	TeacherRepository tr = new TeacherRepository();
+	public ROController() {
+		// TODO Auto-generated constructor stub
+		this.st = new StudentRepository();
+		this.tr = new TeacherRepository();
+	}
+
 	@Override
 	public ArrayList<Object> getStudentLecturesById(int id) {
 		// TODO Auto-generated method stub
