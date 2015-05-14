@@ -1,11 +1,18 @@
 package controller;
 
+import model.*;
 public class ROController implements IROController {
 
+	
+	public ROController() {
+		// TODO Auto-generated constructor stub
+		
+	}
 	@Override
 	public String getStudentCoursesById(int id) {
-		// TODO Auto-generated method stub
 		return null;
+		// TODO Auto-generated method stub
+	
 	}
 
 	@Override
