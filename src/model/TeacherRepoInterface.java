@@ -11,6 +11,7 @@ public interface TeacherRepoInterface {
 	public boolean login(String userName,String password);
 	
 	public Teacher getTeacherById(int teacherId);
+	public ArrayList<Teacher> getAllTeacher();
 	
 	public ArrayList<Student> getAllStudents();
 	public ArrayList<Student> getAllStudentsForALectureByLectureId(int lectureId);

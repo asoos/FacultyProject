@@ -104,5 +104,10 @@ public class TeacherRepository extends PopulateRepository implements TeacherRepo
 					
 				}
 	}
+	@Override
+	public ArrayList<Teacher> getAllTeacher() {
+		// TODO Auto-generated method stub
+		return teachers;
+	}
 
 }
