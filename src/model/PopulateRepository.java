@@ -34,7 +34,7 @@ public class PopulateRepository {
 		Faculty fac2 = new Faculty(1,"UTC","Campului,nr.2",lectures);
 		faculties.add(fac);faculties.add(fac2);
 	}
-	public void populateStudents() {
+	public ArrayList<Student> populateStudents() {
 		// TODO Auto-generated method stub
 		Map<String,Integer> grades = new HashMap<String,Integer>();
 		grades.put("mate", 10);
@@ -44,6 +44,7 @@ public class PopulateRepository {
 		grades.put("oop", 10);
 		Student st3 = new Student(3,"st3","123","Student3","1235","Marinel,nr.3",faculties,lectures,grades);
 		students.add(st1);students.add(st2);students.add(st3);
+		return students;
 		
 	}
 	public void populateTeachers() {

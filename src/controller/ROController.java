@@ -40,9 +40,9 @@ public class ROController implements IROController {
 	@Override
 	public String getNameById(int id) {
 		
-		if (UserSingleton.type == 0){
-			return st.getStudentById(UserSingleton.id).get_name();
-		}
+//		if (UserSingleton.type == 0){
+//			return st.getStudentById(UserSingleton.id).get_name();
+//		}
 		return null;
 	}
 

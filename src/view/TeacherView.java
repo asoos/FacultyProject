@@ -14,6 +14,7 @@ import javax.swing.JPanel;
 
 import controller.IROController;
 import controller.ROController;
+import controller.UserSingleton;
 
 
 public class TeacherView extends JPanel{
@@ -28,6 +29,7 @@ public class TeacherView extends JPanel{
 	private JButton btnAddCourse;
 	
 	public TeacherView(int userId) {
+		UserSingleton.getInstance().id = userId;
 		frame = new JFrame("Teacher");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		

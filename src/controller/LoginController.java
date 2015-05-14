@@ -22,6 +22,7 @@ public class LoginController implements ILoginController{
 		if (type == 0){
 			//student
 			id = validStudent(username, password);
+			System.out.println(id);
 			if (id != -1) {
 				//we fould the student
 				UserSingleton.id = id;
@@ -68,9 +69,12 @@ public class LoginController implements ILoginController{
 	}
 	private int validStudent(String username, String password) {
 		//return -1 if the student does not exist. Else, returns his id
+		System.out.println(username + password);
 		ArrayList<Student> students = studentRepo.getAllStudents();
 		for (Student currentStudent : students) {
-			if (currentStudent.getPassword() == password && currentStudent.get_userName() == username){
+			System.out.println(currentStudent);
+			if (currentStudent.getPassword().equals(password)  
+					&& currentStudent.get_userName().equals(username)){
 				return currentStudent.get_userId();
 			}
 		}

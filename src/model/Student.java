@@ -123,12 +123,14 @@ public class Student extends User{
 	
 	@Override
 	public String toString() {
+
 		return "Student [_userId=" + _userId + ", _firstName=" + _firstName
 				+ ", _surName=" + _surName + ", _fatherName=" + _fatherName
 				+ ", _gender=" + _gender + ", _cnp=" + _cnp + ", _address="
 				+ _address + ", _faculties=" + _faculties + ", _lectures="
 				+ _lectures + ", _grades=" + _grades + "]";
 	}
+
 	public String getPassword() {
 		// TODO Auto-generated method stub
 		return super.get_password();
