@@ -41,10 +41,11 @@ public class ROController implements IROController {
 	public String getNameById(int id) {
 		
 		if (UserSingleton.type == 0){
-			return st.getStudentById(UserSingleton.id).get_name();
+			System.out.println(UserSingleton.getInstance().toString());
+			return st.getStudentById(UserSingleton.id).get_firstName();
 		}
 		else if (UserSingleton.type == 1) {
-			return tr.getTeacherById(UserSingleton.id).get_name();
+			return tr.getTeacherById(UserSingleton.id).get_firstName();
 		}
 		return null;
 	}
