@@ -111,6 +111,12 @@ public class Teacher extends User{
 	public void set_lectures(ArrayList<Lecture> _lectures) {
 		this._lectures = _lectures;
 	}
+	 public String get_fatherName(){
+		  return this._fatherName;
+		 }
+		 public void set_fatherName(String _fatherName){
+		  this._fatherName = _fatherName;
+	}
 
 
 	
