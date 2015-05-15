@@ -9,7 +9,7 @@ public class AdminRepository extends PopulateRepository implements AdminRepoInte
 	public AdminRepository(){
 		populateLectures();
 		populateFaculties();
-		populateTeachers();
+		//populateTeachers();
 		populateStudents();
 
 		populateAdmins();	
@@ -73,11 +73,12 @@ public class AdminRepository extends PopulateRepository implements AdminRepoInte
 	}
 	
 	public void addTeacher(Teacher teacher){
-		teachers.add(teacher);
+		TeacherRepository.teachers.add(teacher);
 	}
+	
 	public void removeTeacher(int teacherId){
 		ArrayList<Teacher> temporaryTeachers;
-		temporaryTeachers = teachers;
+		temporaryTeachers = TeacherRepository.teachers;
 		for(Teacher teacher:temporaryTeachers)
 			if(teacher.get_id() == teacherId){
 				students.remove(teacher);
@@ -85,24 +86,24 @@ public class AdminRepository extends PopulateRepository implements AdminRepoInte
 	}
 	public void updateTeacher(Teacher teacher){
 		ArrayList<Teacher> temporaryTeachers;
-		temporaryTeachers = teachers;
+		temporaryTeachers = TeacherRepository.teachers;
 		int index = 0;
 		for(Teacher teach:temporaryTeachers){
 			index++;
 			if(teach.get_id() == teacher.get_id()){
-				teachers.get(index).set_firstName(teach.get_firstName());
-				teachers.get(index).set_surName(teach.get_surName());
-				teachers.get(index).set_fatherName(teach.get_fatherName());
-				teachers.get(index).set_gender(teach.get_gender());
-				teachers.get(index).set_cnp(teach.get_cnp());
-				teachers.get(index).set_address(teach.get_address());
-				teachers.get(index).set_faculties(teach.get_faculties());
-				teachers.get(index).set_lectures(teach.get_lectures());
+				TeacherRepository.teachers.get(index).set_firstName(teach.get_firstName());
+				TeacherRepository.teachers.get(index).set_surName(teach.get_surName());
+				TeacherRepository.teachers.get(index).set_fatherName(teach.get_fatherName());
+				TeacherRepository.teachers.get(index).set_gender(teach.get_gender());
+				TeacherRepository.teachers.get(index).set_cnp(teach.get_cnp());
+				TeacherRepository.teachers.get(index).set_address(teach.get_address());
+				TeacherRepository.teachers.get(index).set_faculties(teach.get_faculties());
+				TeacherRepository.teachers.get(index).set_lectures(teach.get_lectures());
 			}				
 		}
 	}
 	public Teacher getTeacherById(int teacherId){
-		for(Teacher teacher:teachers){
+		for(Teacher teacher:TeacherRepository.teachers){
 			if(teacher.get_id() == teacherId)
 				return teacher;
 		}

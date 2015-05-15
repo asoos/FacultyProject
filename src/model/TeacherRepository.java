@@ -3,6 +3,8 @@ package model;
 import java.util.ArrayList;
 
 public class TeacherRepository extends PopulateRepository implements TeacherRepoInterface{
+	public static ArrayList<Teacher> teachers = new ArrayList<Teacher>();
+
 	
 	public TeacherRepository(){
 		populateLectures();
@@ -11,14 +13,16 @@ public class TeacherRepository extends PopulateRepository implements TeacherRepo
 		populateStudents();
 		populateAdmins();
 	}
-	/**	
-	 * login function logs a user in the application
-	 * parameters: userName- the user name given by the admin
-	 * 			   password - a string used as a verification mechanism
 
-	 * returns true if the user exists
-	 * 		   false otherwise
-	 */
+	private void populateTeachers() {
+		// TODO Auto-generated method stub
+		Teacher teach1 = new Teacher(1,"mate","123","Student","1235","Marinel,nr.3",faculties,lectures);
+		Teacher teach2 = new Teacher(2,"teach2","123","Student","1235","Marinel,nr.3",faculties,lectures);
+		Teacher teach3 = new Teacher(3,"teach3","123","Student","1235","Marinel,nr.3",faculties,lectures);
+		Teacher teach4 = new Teacher(4,"teach4","123","Student","1235","Marinel,nr.3",faculties,lectures);
+		teachers.add(teach1);teachers.add(teach2);teachers.add(teach3);teachers.add(teach4);	
+	}
+
 	public boolean login(String userName,String password){
 		for(Teacher teacher:teachers){
 			if(teacher.get_userName().equals(userName) && teacher.get_password().equals(password))

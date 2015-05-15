@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PopulateRepository {
-	public ArrayList<Teacher> teachers = new ArrayList<Teacher>();
 	public ArrayList<Student> students = new ArrayList<Student>();
 	public ArrayList<Faculty> faculties = new ArrayList<Faculty>();
 	public ArrayList<Lecture> lectures = new ArrayList<Lecture>();
@@ -47,21 +46,13 @@ public class PopulateRepository {
 		return students;
 		
 	}
-	public void populateTeachers() {
-		// TODO Auto-generated method stub
-		Teacher teach1 = new Teacher(1,"teach1","123","Student","1235","Marinel,nr.3",faculties,lectures);
-		Teacher teach2 = new Teacher(2,"teach2","123","Student","1235","Marinel,nr.3",faculties,lectures);
-		Teacher teach3 = new Teacher(3,"teach3","123","Student","1235","Marinel,nr.3",faculties,lectures);
-		Teacher teach4 = new Teacher(4,"teach4","123","Student","1235","Marinel,nr.3",faculties,lectures);
-		teachers.add(teach1);teachers.add(teach2);teachers.add(teach3);teachers.add(teach4);
 
-	}
 	
 	public void populateAll(){
-		populateLectures();
-		populateFaculties();
-		populateStudents();
-		populateTeachers();
-		populateAdmins();
+//		populateLectures();
+//		populateFaculties();
+//		populateStudents();
+//		populateTeachers();
+//		populateAdmins();
 	}
 }

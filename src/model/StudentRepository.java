@@ -5,14 +5,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class StudentRepository extends PopulateRepository implements StudentRepoInterface {
-	public ArrayList<Student> students = new ArrayList<Student>();
+	public static ArrayList<Student> students = new ArrayList<Student>();
 	
 	public StudentRepository(){
-		populateLectures();
-		populateFaculties();
-		populateTeachers();
-		populateMyStudents();
-		populateAdmins();	
+
 	}
 	private void populateMyStudents() {
 		Map<String,Integer> grades = new HashMap<String,Integer>();

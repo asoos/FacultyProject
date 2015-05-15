@@ -62,7 +62,7 @@ public class LoginController implements ILoginController{
 		// return -1 if the admin is not foud. Else, returns his id
 		List<Admin> admins = adminRepo.getAllAdmins();
 		for (Admin curr : admins) {
-			if (curr.get_password() == password && curr.get_userName() == username) {
+			if (curr.get_password().equals(password) && curr.get_userName().equals(username)) {
 				return curr.get_id();
 			}
 		}
@@ -73,7 +73,7 @@ public class LoginController implements ILoginController{
 		//return -1 if the Teacher does not exists
 		ArrayList<Teacher> teachers = teacherRepo.getAllTeachers();
 		for (Teacher currentTeacher : teachers) {
-			if (currentTeacher.get_password() == password && currentTeacher.get_userName() == username){
+			if (currentTeacher.get_password().equals(password) && currentTeacher.get_userName().equals(username)){
 				return currentTeacher.get_userId();
 			}
 		}
@@ -84,7 +84,6 @@ public class LoginController implements ILoginController{
 		//return -1 if the student does not exist. Else, returns his id
 		ArrayList<Student> students = studentRepo.getAllStudents();
 		for (Student currentStudent : students) {
-			System.out.println(currentStudent);
 			if (currentStudent.getPassword().equals(password)  
 					&& currentStudent.get_userName().equals(username)){
 				return currentStudent.get_userId();
