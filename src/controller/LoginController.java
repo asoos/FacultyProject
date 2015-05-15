@@ -27,22 +27,15 @@ public class LoginController implements ILoginController{
 			System.out.println(id);
 			if (id != -1) {
 				//we fould the student
-				UserSingleton.id = id;
-				UserSingleton.password = password;
-				UserSingleton.username = username;
-				UserSingleton.type = type;
+				updateSingleton(id,type,username,password);
 			}
-			
 			
 		} else if (type == 1) {
 			//teacher
 			id = validTeacher(username, password);
 			if (id != -1) {
 				//we fould Teacher
-				UserSingleton.id = id;
-				UserSingleton.password = password;
-				UserSingleton.username = username;
-				UserSingleton.type = type;
+				updateSingleton(id, type, username, password);
 			}
 			
 		} else if (type == 2){
@@ -50,13 +43,19 @@ public class LoginController implements ILoginController{
 			id = validAdmin(username, password);
 			if (id != -1) {
 				//we fould Admin
-				UserSingleton.id = id;
-				UserSingleton.password = password;
-				UserSingleton.username = username;
-				UserSingleton.type = type;
+				updateSingleton(id, type, username, password);
 			}
 		}
 		return id;
+	}
+
+	private void updateSingleton(int id, int type, String username,
+			String password) {
+		// TODO Auto-generated method stub
+			UserSingleton.id = id;
+			UserSingleton.password = password;
+			UserSingleton.username = username;
+			UserSingleton.type = type;
 	}
 
 	private int validAdmin(String username, String password) {
@@ -83,7 +82,6 @@ public class LoginController implements ILoginController{
 	
 	private int validStudent(String username, String password) {
 		//return -1 if the student does not exist. Else, returns his id
-		System.out.println(username + password);
 		ArrayList<Student> students = studentRepo.getAllStudents();
 		for (Student currentStudent : students) {
 			System.out.println(currentStudent);
@@ -95,7 +93,6 @@ public class LoginController implements ILoginController{
 		return -1;
 	}
 	
-
 	
 	@Override
 	public int register(String username, String password, int type) {
