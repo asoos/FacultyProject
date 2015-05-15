@@ -109,5 +109,32 @@ public class TeacherRepository extends PopulateRepository implements TeacherRepo
 		// TODO Auto-generated method stub
 		return teachers;
 	}
+	@Override
+	public ArrayList<Lecture> getAllLecturesForWhichATecherIsNotEnrolled(
+			int teacherId) {
+		// TODO Auto-generated method stub
+		ArrayList<Lecture> lecturesToReturn = null;
+		
+		for(Teacher teacher:teachers){
+			if(teacher.get_id() == teacherId)
+				for(Lecture lecture:lectures)
+					if(teacher.get_lectures().contains(lecture) == false){
+						lecturesToReturn.add(lecture);
+				}
+		
+		}
+		return lecturesToReturn;		
+	}
+	public void enrollToLecture(int teacherId,int lectureId){
+		Lecture lecture= null;
+		int index=0;
+		for(Lecture lect:lectures){
+			if(lect.get_id() == lectureId)
+				lecture = lect;
+		}
+		for(Teacher teacher:teachers)
+			if(teacher.get_id() == teacherId)
+				teachers.get(index).get_lectures().add(lecture);
+	}
 
 }
