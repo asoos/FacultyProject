@@ -11,13 +11,14 @@ public interface TeacherRepoInterface {
 	public boolean login(String userName,String password);
 	
 	public Teacher getTeacherById(int teacherId);
-	public ArrayList<Teacher> getAllTeacher();
+	public ArrayList<Teacher> getAllTeachers();
 	
 	public ArrayList<Student> getAllStudents();
 	public ArrayList<Student> getAllStudentsForALectureByLectureId(int lectureId);
 	
 	public ArrayList<Lecture> getAllLectures();
 	public ArrayList<Lecture> getAllLecturesForATeacherByTeacherId(int teacherId);
+	public ArrayList<Lecture> getAllLecturesForWhichATecherIsNotEnrolled(int teacherId);
 	
 	public ArrayList<Faculty> getAllFaculties();
 	public ArrayList<Faculty> getAllFacultiesForATeacherByTeacherId(int teacherId);
@@ -25,5 +26,6 @@ public interface TeacherRepoInterface {
 	public void addGrade(int grade,int studentId,int lectureId);
 	public void removeGrade(int studentId,int lectureId);
 	public void updateGrade(int newGade,int studentId,int lectureId);
+	public void enrollToLecture(int teacherId, int lectureId);
 	
 }

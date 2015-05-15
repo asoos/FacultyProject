@@ -56,4 +56,12 @@ public class PopulateRepository {
 		teachers.add(teach1);teachers.add(teach2);teachers.add(teach3);teachers.add(teach4);
 
 	}
+	
+	public void populateAll(){
+		populateLectures();
+		populateFaculties();
+		populateStudents();
+		populateTeachers();
+		populateAdmins();
+	}
 }

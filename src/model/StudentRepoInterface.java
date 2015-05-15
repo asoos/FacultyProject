@@ -17,6 +17,7 @@ public interface StudentRepoInterface {
 	
 	public ArrayList<Lecture> getAllLectures();	
 	public ArrayList<Lecture> getAllLecturesForAStudentByStudentId(int studentId);
+	public ArrayList<Lecture> getAllLecturesToWhichAStudentIsNotEnrolled(int studentId);
 	
 	public ArrayList<Faculty> getAllFaculties();
 	public ArrayList<Faculty> getAllFacultiesForAStudentByStudentId(int studentId);

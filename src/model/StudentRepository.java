@@ -81,4 +81,20 @@ public class StudentRepository extends PopulateRepository implements StudentRepo
 			if(student.get_id() == studentId)
 				students.get(index).get_lectures().add(lecture);
 	}
+	@Override
+	public ArrayList<Lecture> getAllLecturesToWhichAStudentIsNotEnrolled(
+			int studentId) {
+		// TODO Auto-generated method stub
+			ArrayList<Lecture> lecturesToReturn = null;
+			
+			for(Student student:students){
+				if(student.get_id() == studentId)
+					for(Lecture lecture:lectures)
+						if(student.get_lectures().contains(lecture) == false){
+							lecturesToReturn.add(lecture);
+					}
+			
+			}
+			return lecturesToReturn;		
+	}
 }
