@@ -40,9 +40,13 @@ public class ROController implements IROController {
 	@Override
 	public String getNameById(int id) {
 		
-//		if (UserSingleton.type == 0){
-//			return st.getStudentById(UserSingleton.id).get_name();
-//		}
+		if (UserSingleton.type == 0){
+			System.out.println(UserSingleton.getInstance().toString());
+			return st.getStudentById(UserSingleton.id).get_firstName();
+		}
+		else if (UserSingleton.type == 1) {
+			return tr.getTeacherById(UserSingleton.id).get_firstName();
+		}
 		return null;
 	}
 
@@ -50,16 +54,21 @@ public class ROController implements IROController {
 	public String getSurnameById(int id) {
 		// TODO Auto-generated method stub
 		if (UserSingleton.type == 0){
-			return "Default Student Surname";
+			return st.getStudentById(UserSingleton.id).get_surName();
+		}
+		else if (UserSingleton.type == 1) {
+			return tr.getTeacherById(UserSingleton.id).get_surName();
 		}
 		return null;
 	}
 
 	@Override
 	public String getGenderById(int id) {
-		// TODO Auto-generated method stub
 		if (UserSingleton.type == 0){
-			return "Default Student Gender";
+			return st.getStudentById(UserSingleton.id).get_gender();
+		}
+		else if (UserSingleton.type == 1) {
+			return tr.getTeacherById(UserSingleton.id).get_gender();
 		}
 		return null;
 	}
@@ -68,7 +77,10 @@ public class ROController implements IROController {
 	public String getFathersNameById(int id) {
 		// TODO Auto-generated method stub
 		if (UserSingleton.type == 0){
-			return "Default Student father's name";
+			return st.getStudentById(UserSingleton.id).get_fatherName();
+		}
+		else if (UserSingleton.type == 1) {
+			return tr.getTeacherById(UserSingleton.id).get_fatherName();
 		}
 		return null;
 	}

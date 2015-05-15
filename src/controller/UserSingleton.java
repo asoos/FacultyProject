@@ -18,4 +18,12 @@ public class UserSingleton {
 		   }
 		   return instance;
 		}
+		
+		public String toString(){
+			String s = "";
+			s += "id:"+id;
+			s += "username:"+username+"\npassword:"+password+"\ntype:"+type;
+			
+			return s;
+		}
 }

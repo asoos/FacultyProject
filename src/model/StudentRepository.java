@@ -11,8 +11,19 @@ public class StudentRepository extends PopulateRepository implements StudentRepo
 		populateLectures();
 		populateFaculties();
 		populateTeachers();
-//		students = populateStudents();
+		populateMyStudents();
 		populateAdmins();	
+	}
+	private void populateMyStudents() {
+		Map<String,Integer> grades = new HashMap<String,Integer>();
+		grades.put("mate", 10);
+		Student st1 = new Student(1,"mate","123","Student1","1235","Marinel,nr.3",faculties,lectures,grades);
+		grades.put("English", 9);
+		Student st2 = new Student(2,"st2","123","Student2","1235","Marinel,nr.3",faculties,lectures,grades);
+		grades.put("oop", 10);
+		Student st3 = new Student(3,"st3","123","Student3","1235","Marinel,nr.3",faculties,lectures,grades);
+		students.add(st1);students.add(st2);students.add(st3);
+		//students.toString();	
 	}
 	/**	
 	 * login function logs a user in the application
@@ -31,22 +42,15 @@ public class StudentRepository extends PopulateRepository implements StudentRepo
 	}
 	
 	public Student getStudentById(int studentId){
-		for(Student student:students)
+		for(Student student:students) {
+			System.out.println("\nStudentToString:"+student.toString());
 			if(student.get_id() == studentId)
 				return student;
+		}
 		return null;
 	}
 	
 	public ArrayList<Student> getAllStudents(){
-		Map<String,Integer> grades = new HashMap<String,Integer>();
-		grades.put("mate", 10);
-		Student st1 = new Student(1,"mate","123","Student1","1235","Marinel,nr.3",faculties,lectures,grades);
-		grades.put("English", 9);
-		Student st2 = new Student(2,"st2","123","Student2","1235","Marinel,nr.3",faculties,lectures,grades);
-		grades.put("oop", 10);
-		Student st3 = new Student(3,"st3","123","Student3","1235","Marinel,nr.3",faculties,lectures,grades);
-		students.add(st1);students.add(st2);students.add(st3);
-		students.toString();
 		return students;
 	}
 	
