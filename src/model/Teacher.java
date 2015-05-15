@@ -73,12 +73,6 @@ public class Teacher extends User{
 		this._userId = _userId;
 	}
 
-	public String get_fatherName() {
-		return _fatherName;
-	}
-	public void set_fatherName(String _fatherName) {
-		this._fatherName = _fatherName;
-	}
 	public String get_cnp() {
 		return _cnp;
 	}
