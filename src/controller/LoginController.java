@@ -1,6 +1,7 @@
 package controller;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import model.*;
 
@@ -15,9 +16,10 @@ public class LoginController implements ILoginController{
 		teacherRepo = new TeacherRepository();
 		studentRepo = new StudentRepository();
 	}
+	
 	@Override
 	public int login(String username, String password, int type) {
-		// TODO Auto-generated method stub
+		
 		int id = -1;
 		if (type == 0){
 			//student
@@ -45,28 +47,40 @@ public class LoginController implements ILoginController{
 			
 		} else if (type == 2){
 			//admin
-//			id = validAdmin(username, password);
-//			if (id != -1) {
-//				//we fould Admin
-//				UserSingleton.id = id;
-//				UserSingleton.password = password;
-//				UserSingleton.username = username;
-//				UserSingleton.type = type;
-//			}
+			id = validAdmin(username, password);
+			if (id != -1) {
+				//we fould Admin
+				UserSingleton.id = id;
+				UserSingleton.password = password;
+				UserSingleton.username = username;
+				UserSingleton.type = type;
+			}
 		}
 		return id;
 	}
 
-	private int validTeacher(String username, String password) {
-		//return -1 if the Teacher does not exists
-		//ArrayList<Teacher> teachers = teacherRepo.get();
-		//for (Student currentStudent : teachers) {
-			//if (currentStudent.getPassword() == password && currentStudent.get_userName() == username){
-				//return currentStudent.get_userId();
-			//}
-		//}
+	private int validAdmin(String username, String password) {
+		// return -1 if the admin is not foud. Else, returns his id
+		List<Admin> admins = adminRepo.getAllAdmins();
+		for (Admin curr : admins) {
+			if (curr.get_password() == password && curr.get_userName() == username) {
+				return curr.get_id();
+			}
+		}
 		return -1;
 	}
+
+	private int validTeacher(String username, String password) {
+		//return -1 if the Teacher does not exists
+		ArrayList<Teacher> teachers = teacherRepo.getAllTeachers();
+		for (Teacher currentTeacher : teachers) {
+			if (currentTeacher.get_password() == password && currentTeacher.get_userName() == username){
+				return currentTeacher.get_userId();
+			}
+		}
+		return -1;
+	}
+	
 	private int validStudent(String username, String password) {
 		//return -1 if the student does not exist. Else, returns his id
 		System.out.println(username + password);
@@ -85,7 +99,7 @@ public class LoginController implements ILoginController{
 	
 	@Override
 	public int register(String username, String password, int type) {
-		// TODO Auto-generated method stub
+		
 		if (type == 0){
 			//student
 		} else if (type == 1) {

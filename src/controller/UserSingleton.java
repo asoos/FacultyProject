@@ -9,6 +9,7 @@ public class UserSingleton {
 	public static String password;
 	public static int type;
 	
+	
 	protected UserSingleton() {
 		   // Exists only to defeat instantiation.
 		}
